@@ -24,7 +24,7 @@ Comment.init(
             }
         },
         userId: {
-            typer: DataTypes.INTERGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: "user",

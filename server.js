@@ -3,6 +3,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
+const router = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -26,10 +27,10 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(require('./routes'));
-
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+
+app.use(router);
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
