@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-const { DataTypes, DataTypes } = require('sequelize/types');
 const sequelize = require('../config/connection');
 
 class Restaurant extends Model {}
@@ -44,7 +43,7 @@ Restaurant.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Restaurant'
+        modelName: 'restaurant'
     }
 );
 
