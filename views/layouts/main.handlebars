@@ -15,7 +15,8 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
         <li><a href="/my-restaurants">My Restaurants</a></li>
-        <li><a href=" ">Login/Create</a></li>
+        <li><a href="/login">Login/Create</a></li>
+        <li><a href="#" id="logout-link">Logout</a></li>
       </ul>
     </div>
   </nav>
@@ -29,3 +30,6 @@
     
 </body>
 </html>
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}

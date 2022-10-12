@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Restaurant } = require('../../models/');
 const withAuth = require('../../utils/withAuth');
 
+
 // create post
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
