@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, BeenThere } = require('../../models');
 
 //create new user
 router.post('/', async (req, res) => {
@@ -65,5 +65,23 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+//been there
+router.post('/beenthere', async (req, res) => {
+  try {
+    
+    const beenThere = await BeenThere.create({
+      restaurantId: req.body.restaurantId,
+      userId: req.session.userId 
+    });
+
+    res.sendStatus(204) 
+  }      
+  
+   catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
