@@ -1,10 +1,10 @@
 <h1>Welcome</h1>
 
 {{#if loggedIn}}
-{{#each restaurants as |restaurant| }}
   <!-- Render user-specific data with Handlebars.js expressions -->
 
   <div class="row">
+    {{#each restaurants as |restaurant| }}
     <div class="col s4">
       <div class="card light-blue accent-1">
         <a href="/restaurant/{{id}}">
@@ -16,11 +16,10 @@
 
         <div class="card-action black-text">
           <a class="light-blue-text text-darken-4" href="#">Been There</a>
-          <a class="light-blue-text text-darken-4" href="#">Comment</a>
+          <a class="light-blue-text text-darken-4" href="/restaurant/{{id}}">Comment</a>
         </div>
       </div>
     </div>
+    {{/each}}
   </div>
-
-{{/each}}
 {{/if}}

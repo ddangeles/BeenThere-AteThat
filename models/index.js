@@ -16,16 +16,16 @@ Restaurant.belongsTo(User, {
     foreignKey: "userId"
 });
 
+Restaurant.hasMany(Comment, {
+    foreignKey: "restaurantId"
+});
+
 Comment.belongsTo(Restaurant, {
     foreignKey: "restaurantId"
 });
 
 Comment.belongsTo(User, {
     foreignKey: "userId"
-});
-
-Restaurant.hasMany(Comment, {
-    foreignKey: "restaurantId"
 });
 
 

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Restaurant } = require('../models');
+const { Restaurant, Comment, User } = require('../models');
 const withAuth = require('../utils/withAuth');
 
 
@@ -21,19 +21,24 @@ router.get('/', async (req, res) => {
 router.get('/restaurant/:id', withAuth, async (req, res) => {
   try {
     const restaurantData = await Restaurant.findOne({
-      where: {id: req.params.id}
-      // include: [
-      //   User,
-      //   {
-      //     model: Comment,
-      //     include: [User],
-      //   },
-      // ],
+      where: {id: req.params.id},
+      include: [
+        User, Comment
+        // {
+        //   model: Comment,
+        //   attributes: ['id', 'comment', 'restaurantId', 'userId'],
+        //   // include: {
+        //   //   model: User,
+        //   //   attributes: ['username']
+        //   // },
+        // }
+      ],
     });
 
     if (restaurantData) {
       // serialize and render the data
       const restaurant = restaurantData.get({ plain: true });
+      console.log(restaurant)
       res.render('singleRestaurant', { restaurant, loggedIn: req.session.loggedIn});
     } else {
       res.status(404).end();
