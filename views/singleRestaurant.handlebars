@@ -17,7 +17,7 @@
   </form>
 {{!-- {{>comment restaurant.comments}} --}}
 {{#each restaurant.comments as |comment|}}
-<p>{{comment.comment}}</p>
+<p>{{comment.comment}} posted on {{format_date createdAt}}</p>
 {{/each}}
 </div>
 {{/if}}

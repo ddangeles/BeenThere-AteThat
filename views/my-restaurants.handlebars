@@ -1,6 +1,7 @@
 <!-- Loop over each user object -->
   <!-- Render user-specific data with Handlebars.js expressions -->
 
+{{#if restaurants.length}}
   <div class="row">
     {{#each restaurants as |restaurant| }}
     <div class="col s4">
@@ -19,3 +20,8 @@
     </div>
     {{/each}}
   </div>
+  {{/if}}
+
+  <footer class="footer text-center">
+    <a href="/my-restaurants/new"> Add New Restaurant</a>
+  </footer>

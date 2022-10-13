@@ -1,0 +1,17 @@
+<div class="card">
+  <h2 class="card-header">Add New Restaurant</h2>
+  <form class="card-body" id="new-restaurant-form">
+    <input type="hidden" name="restaurant-id" value="{{restaurant.id}}"/>
+    <div>
+      <label class="form-label">Restaurant Name:</label>
+      <input class="form-input" id="restaurant-name" type="text" name="restaurant-name"/>
+    </div>
+    <div>
+      <label class="form-label">Location:</label>
+      <input class="form-input" id="restaurant-location" type="text" name="restaurant-location"></input>
+    </div>
+ 
+    <button class="btn btn-primary" type="submit">CREATE</button>
+  </form>
+</div>
+<script src="/js/new.js"></script>
