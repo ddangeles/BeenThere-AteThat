@@ -5,10 +5,23 @@
           <span class="card-title">{{restaurant.name}}</span>
           <p>Location: {{restaurant.location}}</p>
         </div>
-        <div class="card-action black-text">
-          <a class="light-blue-text text-darken-4" href="#">Been There</a>
-          <a class="light-blue-text text-darken-4" href="#">Comment</a>
-        </div>
+        <input type="hidden" name="restaurant-id" id="restaurant-id" value="{{restaurant.id}}"/>
+{{#if loggedIn}}
+<div class="card">
+  <div class="card-header"></div>
+  <form class="card-body" id="new-comment-form">
+    
+    <p class="form-label">Comment:</p>
+    <textarea class="form-input" id="comment-body" name="comment-body"></textarea>
+    <button type="submit" class="btn">Submit:</button>
+  </form>
+{{!-- {{>comment restaurant.comments}} --}}
+{{#each restaurant.comments as |comment|}}
+<p>{{comment.comment}}</p>
+{{/each}}
+</div>
+{{/if}}
+<script src="/js/comment.js"></script>
       </div>
     </div>
   </div>
