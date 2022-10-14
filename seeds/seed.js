@@ -4,7 +4,7 @@ const { Restaurant, User, Comment, BeenThere } = require('../models');
 const restaurantData = require('./restaurantData.json');
 const userData = require('./userData.json');
 const commentData = require('./commentData.json');
-
+const beenThereData = require('./beenThereData.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
   
@@ -23,7 +23,7 @@ const seedDatabase = async () => {
     returning: true
   });
 
-  await BeenThere.bulkCreate(commentData, {
+  await BeenThere.bulkCreate(beenThereData, {
     individualHooks: true,
     returning: true
   })
