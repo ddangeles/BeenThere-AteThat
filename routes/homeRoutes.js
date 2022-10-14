@@ -50,24 +50,42 @@ router.post("/my-restaurants", withAuth, upload.single('image'), async (req, res
 
 router.get('/', async (req, res) => {
   try {
-    const restaurantData = await Restaurant.findAll({
+    let restaurantData = await Restaurant.findAll({
       attributes: { exclude: [''] },
-      order: [['name', 'ASC']],
+      order: [['name', 'ASC']]
     });
 
+   restaurantData = restaurantData.map((project) => project.get({ plain: true }));
 
-    // const beenThereData = await BeenThere.findAll({
-    //   where: {userId: req.session.userId},
-    // });
+    let beenThereData = await BeenThere.findAll({
+      where: {userId: req.session.userId},
+      })
 
-    const restaurants = restaurantData.map((project) => project.get({ plain: true }));
-    
+      beenThereData = beenThereData.map((project) => project.get({ plain: true }));
 
+      console.log(beenThereData)
+      
+      restaurantData = restaurantData.map(restaurant => {
+        let visited = false
+        beenThereData.forEach(beenThere => {
+          if (beenThere.restaurantId === restaurant.id) {
+            visited = true
+          }
+        })
+        return {
+          ...restaurant,
+          visited: visited
+        }
+      });
+
+      console.log(restaurantData)
+  
     // console.log(restaurants)
     // console.log(beenThereData)
 
-    res.render('homepage', { restaurants, loggedIn: req.session.loggedIn, beenThereData });
+    res.render('homepage', { restaurantData, loggedIn: req.session.loggedIn});
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
