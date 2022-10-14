@@ -18,20 +18,20 @@ const newFormHandler = async function (event) {
   // document.location.replace('/my-restaurants');
 };
 
-document
-  .querySelector('#new-restaurant-form')
-  .addEventListener('submit', newFormHandler);
+// document
+//   .querySelector('#new-restaurant-form')
+//   .addEventListener('submit', newFormHandler);
 
 document.getElementById('no-image').onclick = function(){
   location.replace('/my-restaurants')
 }  
 
-const show = (element) => {
-  element.classList.remove("image-uploader-hide")
-}
+// const show = (element) => {
+//   element.classList.remove("image-uploader-hide")
+// }
 
-document.getElementById('add-image').onclick = function(){
-  show(document.getElementById('image-uploader'))
-}
+// document.getElementById('add-image').onclick = function(){
+//   show(document.getElementById('image-uploader'))
+// }
 
 // document.getElementById('add-image').addEventListener('submit', newFormHandler);

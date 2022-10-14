@@ -21,8 +21,31 @@ const upload = multer({storage: storage})
 // images get posted within the folder of images
 // will have to create an image object within the restaurant 
 // in order to populate the image of the restaurant
-router.post("/upload", upload.single('image'), (req, res) => {
-  res.redirect('/my-restaurants');  
+router.post("/my-restaurants", withAuth, upload.single('image'), async (req, res) => {
+  console.log(req.body)
+  console.log("hello")
+  try {
+    req.body = JSON.parse(JSON.stringify(req.body));
+
+    if (!req.file){
+      let newRestaurant = await Restaurant.create({ 
+        ...req.body,
+        userId: req.session.userId 
+    });
+ 
+    } else {
+      let newRestaurant = await Restaurant.create({ 
+        ...req.body, image: req.file.filename
+        , userId: req.session.userId 
+    });
+  
+    }
+    res.redirect('/my-restaurants');
+
+     } catch (err) {
+    res.status(500).json(err);
+  }
+  // res.redirect('/my-restaurants');  
 })
 
 router.get('/', async (req, res) => {
@@ -43,11 +66,13 @@ router.get('/', async (req, res) => {
     // console.log(restaurants)
     // console.log(beenThereData)
 
-    res.render('homepage', { restaurants, loggedIn: req.session.loggedIn });
+    res.render('homepage', { restaurants, loggedIn: req.session.loggedIn, beenThereData });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+
 
 router.get('/restaurant/:id', withAuth, async (req, res) => {
   try {

@@ -10,6 +10,13 @@
     <div class="col s4">
       <div class="card light-blue accent-1">
         <div class="card-content black-text">
+          <div class="card-image">
+          <!--We can replace the image link with the uploaded images once models and routes are updated-->
+        {{#if restaurant.image}}
+            <img src="/image/{{restaurant.image}}" />
+        {{/if}}
+          </div>
+
           <a href="/my-restaurants/edit/{{id}}">
           <span class="card-title">{{restaurant.name}}</span>
           <p>Location: {{restaurant.location}}</p>
