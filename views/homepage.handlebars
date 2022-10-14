@@ -1,4 +1,4 @@
-<h1>Welcome</h1>
+<h1 class="valign center">Welcome</h1>
 
 {{#if loggedIn}}
   <!-- Render user-specific data with Handlebars.js expressions -->
@@ -6,7 +6,10 @@
   <div class="row">
     {{#each restaurants as |restaurant| }}
     <div class="col s4">
-      <div class="card light-blue accent-1">
+      <div class="card valign center">
+        <div class="card-image">
+          <img src="https://pbs.twimg.com/profile_images/1579916871654117376/Dxd2l1sN_400x400.png">
+        </div>
         <a href="/restaurant/{{id}}">
         <div class="card-content black-text">
           <span class="card-title">{{restaurant.name}}</span>
@@ -15,11 +18,17 @@
         </a>
 
         <div class="card-action black-text">
+          <!--REDIRECT USER TO HOME PAGE LATER-->
           <a class="light-blue-text text-darken-4" href="#">Been There</a>
           <a class="light-blue-text text-darken-4" href="/restaurant/{{id}}">Comment</a>
         </div>
       </div>
     </div>
     {{/each}}
+    <!--IMAGE UPLOAD CHANGE LOCATION LATER-->
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit">
+    </form>
   </div>
 {{/if}}

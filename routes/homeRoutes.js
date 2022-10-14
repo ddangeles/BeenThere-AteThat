@@ -2,6 +2,28 @@ const router = require('express').Router();
 const { Restaurant, Comment, User, BeenThere } = require('../models');
 const withAuth = require('../utils/withAuth');
 
+// start of image uploading, will probably have to be moved
+const path = require('path');
+const multer = require('multer');
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/image')
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname))
+  }
+})
+
+const upload = multer({storage: storage})
+
+// images get posted within the folder of images
+// will have to create an image object within the restaurant 
+// in order to populate the image of the restaurant
+router.post("/upload", upload.single('image'), (req, res) => {
+  res.send("Image Uploaded");
+})
 
 router.get('/', async (req, res) => {
   try {
