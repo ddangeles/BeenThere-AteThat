@@ -10,15 +10,15 @@ router.get('/', async (req, res) => {
       order: [['name', 'ASC']],
     });
 
-    const beenThereData = await BeenThere.findAll({
-      where: {userId: req.session.userId},
-    });
+    // const beenThereData = await BeenThere.findAll({
+    //   where: {userId: req.session.userId},
+    // });
 
     const restaurants = restaurantData.map((project) => project.get({ plain: true }));
     
     
-    console.log(restaurants)
-    console.log(beenThereData)
+    // console.log(restaurants)
+    // console.log(beenThereData)
 
     res.render('homepage', { restaurants, loggedIn: req.session.loggedIn });
   } catch (err) {
