@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Restaurant extends Model {}
+class Image extends Model {}
 
-Restaurant.init(
+Image.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,24 +11,17 @@ Restaurant.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
-            type: DataTypes.STRING,
+        image: {
+            type: DataTypes.BLOB('long'),
             allowNull: false,
-            validate: {
-                len:[1]
+        },
+        restaurantId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: "restaurant",
+                key: "id"
             }
-        },
-        location: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        favorite: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true
-        },
-        beenThere: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true
         },
         userId: {
             type: DataTypes.INTEGER,
@@ -37,13 +30,13 @@ Restaurant.init(
                 model: "user",
                 key: "id"
             }
-        }
+        },
     },
     {
         sequelize,
         freezeTableName: true,
-        modelName: 'restaurant'
+        modelName: 'image'
     }
 );
 
-module.exports = Restaurant;
+module.exports = Image;

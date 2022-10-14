@@ -1,57 +1,37 @@
-const newFormHandler = async function(event) {
-    event.preventDefault();
-  
-   
-    const name = document.getElementById('restaurant-name').value;
-    const location = document.getElementById('restaurant-location').value;
-
-    // console.log(restaurantName);
-    // console.log(restaurantLocation)
-  
-    await fetch(`/api/restaurant`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name,
-        location,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-  
-    document.location.replace('/my-restaurants');
-  };
-  
-  document
-    .querySelector('#new-restaurant-form')
-    .addEventListener('submit', newFormHandler);
+const newFormHandler = async function (event) {
+  event.preventDefault();
 
 
+  const name = document.getElementById('restaurant-name').value;
+  const location = document.getElementById('restaurant-location').value;
 
-// async function addRestaurantFormHandler(event) {
-//     event.preventDefault();
-//     console.log('s');
 
-//     const restaurantName = document.getElementById('restaurant-name').value
-//     const restaurantLocation = document.getElementById('restaurant-location').value;
+  await fetch(`/api/restaurant`, {
+    method: 'POST',
+    body: JSON.stringify({
+      name,
+      location
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-//     const restaurant = document.querySelector('textarea[name="comment-body"]').value;
+  // document.location.replace('/my-restaurants');
+};
 
-//     if(restaurant) {
-//         const response = await fetch('/api/restaurant', {
-//           method: 'POST',
-//           body: JSON.stringify({
-//             restaurantName,
-//             restaurantLocation
-//           }),
-//           headers: {
-//             'Content-Type': 'application/json'
-//           }
-//         });
-//         if (response.ok) {
-//           document.location.reload();
-//         } else {
-//           alert(response.statusText);
-//         }
-//       };
-// }
+document
+  .querySelector('#new-restaurant-form')
+  .addEventListener('submit', newFormHandler);
 
-// document.getElementById('new-restaurant-form').addEventListener('submit', addRestaurantFormHandler);
+document.getElementById('no-image').onclick = function(){
+  location.replace('/my-restaurants')
+}  
+
+const show = (element) => {
+  element.classList.remove("image-uploader-hide")
+}
+
+document.getElementById('add-image').onclick = function(){
+  show(document.getElementById('image-uploader'))
+}
+
+// document.getElementById('add-image').addEventListener('submit', newFormHandler);

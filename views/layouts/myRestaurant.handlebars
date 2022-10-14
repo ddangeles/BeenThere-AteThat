@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Been There, Ate That</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 
 </head>
 <body>
@@ -15,8 +16,12 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
         <li><a href="/my-restaurants">My Restaurants</a></li>
-        <li><a href="/login">Login/Create</a></li>
+        {{#unless loggedIn}}
+        <li><a href="/login">Login</a></li>
+        {{/unless}}
+        {{#if loggedIn}}
         <li><a href="#" id="logout-link">Logout</a></li>
+        {{/if}}
       </ul>
     </div>
   </nav>
