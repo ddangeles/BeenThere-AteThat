@@ -8,7 +8,6 @@ router.get("/", withAuth, async (req, res) => {
 try {
   const commentData = await Comment.findAll();
   const comments = commentData.map((comment) => comment.get({ plain: true }));
-    //res.render("all-comments", { comments, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }

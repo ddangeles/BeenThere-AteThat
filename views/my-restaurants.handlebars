@@ -1,13 +1,16 @@
 <!-- Loop over each user object -->
   <!-- Render user-specific data with Handlebars.js expressions -->
 
+<br>
+<button class="btn btn-primary m4"><a class="white-text" href="/my-restaurants/new"> Add New Restaurant</a></button>
+
 {{#if restaurants.length}}
   <div class="row">
     {{#each restaurants as |restaurant| }}
     <div class="col s4">
       <div class="card light-blue accent-1">
         <div class="card-content black-text">
-          <a href="/restaurant/{{id}}">
+          <a href="/my-restaurants/edit/{{id}}">
           <span class="card-title">{{restaurant.name}}</span>
           <p>Location: {{restaurant.location}}</p>
           </a>
@@ -23,5 +26,4 @@
   {{/if}}
 
   <footer class="footer text-center">
-    <a href="/my-restaurants/new"> Add New Restaurant</a>
   </footer>

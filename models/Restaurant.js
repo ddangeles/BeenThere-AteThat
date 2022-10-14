@@ -37,7 +37,7 @@ Restaurant.init(
                 model: "user",
                 key: "id"
             }
-        },
+        }
     },
     {
         sequelize,

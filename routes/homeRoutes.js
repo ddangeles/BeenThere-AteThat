@@ -1,7 +1,29 @@
 const router = require('express').Router();
-const { Restaurant, Comment, User, BeenThere } = require('../models');
+const { Restaurant, Comment, User, BeenThere, } = require('../models');
 const withAuth = require('../utils/withAuth');
 
+// start of image uploading, will probably have to be moved
+const path = require('path');
+const multer = require('multer');
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/image')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+})
+
+const upload = multer({storage: storage})
+
+// images get posted within the folder of images
+// will have to create an image object within the restaurant 
+// in order to populate the image of the restaurant
+router.post("/upload", upload.single('image'), (req, res) => {
+  res.redirect('/my-restaurants');  
+})
 
 router.get('/', async (req, res) => {
   try {
@@ -10,13 +32,14 @@ router.get('/', async (req, res) => {
       order: [['name', 'ASC']],
     });
 
+
     // const beenThereData = await BeenThere.findAll({
     //   where: {userId: req.session.userId},
     // });
 
     const restaurants = restaurantData.map((project) => project.get({ plain: true }));
     
-    
+
     // console.log(restaurants)
     // console.log(beenThereData)
 
@@ -73,9 +96,6 @@ router.get('/signup', (req, res) => {
 
   res.render('signup');
 });
-
-
-
 
 
 module.exports = router;
