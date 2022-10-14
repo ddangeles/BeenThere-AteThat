@@ -1,3 +1,7 @@
 * {
     font-family: 'Trebuchet MS', sans-serif;
 }
+
+.image-uploader-hide {
+    display: none;
+}

@@ -1,36 +1,31 @@
-const { Comment } = require("../../models/");
+const { Image } = require("../../models/");
 const router = require('express').Router();
 const withAuth = require("../../utils/withAuth");
 
-// get all posted comments
-
 router.get("/", withAuth, async (req, res) => {
 try {
-  const commentData = await Comment.findAll();
-  const comments = commentData.map((comment) => comment.get({ plain: true }));
+  const imageData = await Comment.findAll();
+  const images = imageData.map((image) => image.get({ plain: true }));
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-// create comments 
 router.post("/", withAuth, async (req, res) => {
   try {
-    const newComment = await Comment.create({
+    const newImage = await Image.create({
       ...req.body,
       userId: req.session.userId,
     });
-    res.json(newComment);
+    res.json(newImage);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// edit comments
 router.put('/:id', withAuth, async (req, res) => {
     try {
-      const [affectedRows] = await Comment.update(req.body, {
+      const [affectedRows] = await Image.update(req.body, {
         where: {
           id: req.params.id,
         },
@@ -46,20 +41,20 @@ router.put('/:id', withAuth, async (req, res) => {
     }
   });
 
-  // delete comments
+
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const commentData = await Comment.destroy({
+    const imageData = await Image.destroy({
       where: {
         id: req.params.id,
       },
     });
 
-    if (!commentData) {
-      res.status(404).json({ message: "No comment found with this id!" });
+    if (!imageData) {
+      res.status(404).json({ message: "No Image found with this id!" });
       return;
     }
-    res.status(200).json(commentData);
+    res.status(200).json(imageData);
   } catch (err) {
     res.status(500).json(err);
   }
