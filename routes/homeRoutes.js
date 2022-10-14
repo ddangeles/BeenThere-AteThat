@@ -32,14 +32,14 @@ router.get('/', async (req, res) => {
       order: [['name', 'ASC']],
     });
 
-    // INCOMPLETE -- BREAKING HOMEPAGE
+
     // const beenThereData = await BeenThere.findAll({
     //   where: {userId: req.session.userId},
     // });
 
     const restaurants = restaurantData.map((project) => project.get({ plain: true }));
     
-    // INCOMPLETE -- BREAKING HOMEPAGE
+
     // console.log(restaurants)
     // console.log(beenThereData)
 

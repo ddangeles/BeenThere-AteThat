@@ -8,7 +8,7 @@
     {
         "name": "Bang Bang",
         "location": "Downtown",
-        "userId": 1
+        "userId": 2
     },
     {
         "name": "You & Yours Distillery",
@@ -33,12 +33,12 @@
     {
         "name": "Valentina",
         "location": "Coastal North County",
-        "userId": 1
+        "userId": 2
     },
     {
         "name": "Din Tai Fung",
         "location": "La Jolla",
-        "userId": 1
+        "userId": 2
     },
     {
         "name": "Animae",
