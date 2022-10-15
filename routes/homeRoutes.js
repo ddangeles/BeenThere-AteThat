@@ -57,11 +57,13 @@ router.get('/', async (req, res) => {
 
    restaurantData = restaurantData.map((project) => project.get({ plain: true }));
 
-    let beenThereData = await BeenThere.findAll({
-      where: {userId: req.session.userId},
-      })
-
-      beenThereData = beenThereData.map((project) => project.get({ plain: true }));
+   if(!req.session.userId){ 
+    res.render('homepage', { restaurantData, loggedIn: req.session.loggedIn});
+    } else{
+      let beenThereData = await BeenThere.findAll({
+        where: {userId: req.session.userId},
+        })
+        beenThereData = beenThereData.map((project) => project.get({ plain: true }));
 
       console.log(beenThereData)
       
@@ -79,11 +81,9 @@ router.get('/', async (req, res) => {
       });
 
       console.log(restaurantData)
-  
-    // console.log(restaurants)
-    // console.log(beenThereData)
+      res.render('homepage', { restaurantData, loggedIn: req.session.loggedIn});
+    }
 
-    res.render('homepage', { restaurantData, loggedIn: req.session.loggedIn});
   } catch (err) {
     console.log(err)
     res.status(500).json(err);
