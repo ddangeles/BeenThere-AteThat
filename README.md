@@ -41,17 +41,17 @@ There are currently no tests.
 ## Questions: <a name="questions"></a>
 If you have questions regarding this project, you can anyone on the team at:
 * Donna Angeles
-- Github: <a href="https://github.com/ddangeles">ddangeles</a>
-- Email: <a href="mailto:donnadangeles@gmail.com">donnadangeles@gmail.com</a>
+    * Github: <a href="https://github.com/ddangeles">ddangeles</a>
+    * Email: <a href="mailto:donnadangeles@gmail.com">donnadangeles@gmail.com</a>
 * Courtney Caputo
-- Github: <a href="https://github.com/courtneycaputo">courtneycaputo</a>
-- Email: <a href="mailto:courtneycaputo@gmail.com">courtneycaputo@gmail.com</a>
+    * Github: <a href="https://github.com/courtneycaputo">courtneycaputo</a>
+    * Email: <a href="mailto:courtneycaputo@gmail.com">courtneycaputo@gmail.com</a>
 * Miguel Undayag
-- Github: <a href="https://github.com/mlcundayag">mlcundayag</a>
-- Email: <a href="mailto:mlcundayag@gmail.com">mlcundayag@gmail.com</a>
+    * Github: <a href="https://github.com/mlcundayag">mlcundayag</a>
+    * Email: <a href="mailto:mlcundayag@gmail.com">mlcundayag@gmail.com</a>
 * Vincent Fernandez
-- Github: <a href="https://github.com/fernandez97vincent">fernandez97vincent</a>
-- Email: <a href="mailto:courtneycaputo@gmail.com">courtneycaputo@gmail.com</a>
+    * Github: <a href="https://github.com/fernandez97vincent">fernandez97vincent</a>
+    * Email: <a href="mailto:courtneycaputo@gmail.com">courtneycaputo@gmail.com</a>
 * Will Wright
-- Github: <a href="https://github.com/wrightw404">wrightw404</a>
-- Email: <a href="mailto:Wrightw404@gmail.com">Wrightw404@gmail.com</a>
+    * Github: <a href="https://github.com/wrightw404">wrightw404</a>
+    * Email: <a href="mailto:Wrightw404@gmail.com">Wrightw404@gmail.com</a>
