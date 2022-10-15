@@ -1,18 +1,42 @@
 const router = require('express').Router();
-const { Restaurant, User } = require('../models');
+const { Restaurant, User, BeenThere } = require('../models');
 const withAuth = require('../utils/withAuth');
 
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const restaurantData = await Restaurant.findAll({
+    let restaurantData = await Restaurant.findAll({
       where: { "userId": req.session.userId },
       include: [User]
     });
 
-    const restaurants = restaurantData.map((project) => project.get({ plain: true }));
+    restaurantData = restaurantData.map((project) => project.get({ plain: true }));
 
-    res.render('my-restaurants', {layout: "myRestaurant", restaurants, loggedIn: req.session.loggedIn });
+    if(!req.session.userId){ 
+      res.render('my-restaurants', {layout: "myRestaurant", restaurantData, loggedIn: req.session.loggedIn });
+      } else{
+        let beenThereData = await BeenThere.findAll({
+          where: {userId: req.session.userId},
+          })
+          beenThereData = beenThereData.map((project) => project.get({ plain: true }));
+  
+        console.log(beenThereData)
+        
+        restaurantData = restaurantData.map(restaurant => {
+          let visited = false
+          beenThereData.forEach(beenThere => {
+            if (beenThere.restaurantId === restaurant.id) {
+              visited = true
+            }
+          })
+          return {
+            ...restaurant,
+            visited: visited
+          }
+        });
+
+    res.render('my-restaurants', {layout: "myRestaurant", restaurantData, loggedIn: req.session.loggedIn });
+      }
   } catch (err) {
     res.status(500).json(err);
   }

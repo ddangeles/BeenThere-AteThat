@@ -1,37 +1,40 @@
 <h1 class="valign center">Welcome</h1>
 
 {{#if loggedIn}}
-  <!-- Render user-specific data with Handlebars.js expressions -->
+<!-- Render user-specific data with Handlebars.js expressions -->
 
-  <div class="row">
-    {{#each restaurantData as |restaurant| }}
-    <div class="col s4">
-      <div class="card valign center">
+<div class="row">
+  {{#each restaurantData as |restaurant| }}
+  <div class="col s4">
+    <div class="card valign center custom-card">
 
-        <a href="/restaurant/{{id}}">
+      <a href="/restaurant/{{id}}">
         <div class="card-image">
           <!--We can replace the image link with the uploaded images once models and routes are updated-->
-       {{#if restaurant.image}}
-            <img src="/image/{{restaurant.image}}" />
-        {{/if}}
+          {{#if restaurant.image}}
+          <img src="/image/{{restaurant.image}}" />
+          {{/if}}
         </div>
-        
-        <div class="card-content black-text">
+
+        <div class="card-content custom-text">
           <span class="card-title">{{restaurant.name}}</span>
           <p>Location: {{restaurant.location}}</p>
         </div>
-        </a>
+      </a>
 
-        <div class="card-action black-text">
-          <!--REDIRECT USER TO HOME PAGE LATER-->
-          {{#if restaurant.visited}}
-          <a class="light-blue-text text-darken-4" href="#">Been There</a> 
-          {{/if}}
-          <a class="light-blue-text text-darken-4" href="/restaurant/{{id}}">Comment</a>
-        </div>
+      <div class="card-action black-text">
+        <!--REDIRECT USER TO HOME PAGE LATER-->
+        {{#if restaurant.visited}}
+        <i class="small material-icons">check_box</i>
+        {{/if}}
+        {{#unless restaurant.visited}}
+        <a class="link-color" href="#">Been There?</a>
+        {{/unless}}
+        <a class="link-color" href="/restaurant/{{id}}">Comment</a>
       </div>
     </div>
-    {{/each}}
-    
   </div>
+  {{/each}}
+
+</div>
 {{/if}}

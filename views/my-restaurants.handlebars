@@ -4,12 +4,12 @@
 <br>
 <button class="btn btn-primary m4"><a class="white-text" href="/my-restaurants/new"> Add New Restaurant</a></button>
 
-{{#if restaurants.length}}
+{{#if restaurantData.length}}
   <div class="row">
-    {{#each restaurants as |restaurant| }}
+    {{#each restaurantData as |restaurant| }}
     <div class="col s4">
-      <div class="card light-blue accent-1">
-        <div class="card-content black-text">
+      <div class="card custom-card">
+        <div class="card-content custom-text">
           <div class="card-image">
           <!--We can replace the image link with the uploaded images once models and routes are updated-->
         {{#if restaurant.image}}
@@ -22,8 +22,13 @@
           <p>Location: {{restaurant.location}}</p>
           </a>
         </div>
-        <div class="card-action black-text">
-          <a class="light-blue-text text-darken-4" href="#">Been There</a>
+        <div class="card-action custom-text">
+          {{#if restaurant.visited}}
+            <i class="small material-icons">check_box</i>
+          {{/if}}
+          {{#unless restaurant.visited}}
+           <button id="visitedBtn"><a class="light-blue-text text-darken-4" href="#">Been There?</a> </button>
+           {{/unless}}
           <a class="light-blue-text text-darken-4" href="/restaurant/{{id}}">Comment</a>
         </div>
       </div>
@@ -33,4 +38,5 @@
   {{/if}}
 
   <footer class="footer text-center">
+    <script src="/js/beenThere.js"></script>
   </footer>
