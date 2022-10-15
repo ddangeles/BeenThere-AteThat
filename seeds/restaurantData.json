@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "June et Jolie",
-        "location": "Coastal North County",
+        "location": "North County",
         "userId": 1
 
     },
@@ -18,22 +18,22 @@
     },
     {
         "name": "The Waverly",
-        "location": "Coastal North County",
+        "location": "North County",
         "userId": 1
     },
     {
         "name": "Firenze Trattoria",
-        "location": "Inland North County",
+        "location": "North County",
         "userId": 1
     },
     {
         "name": "Almalfi Cucina Italiana",
-        "location": "Inland North County",
+        "location": "North County",
         "userId": 1
     },
     {
         "name": "Valentina",
-        "location": "Coastal North County",
+        "location": "North County",
         "userId": 2
     },
     {
