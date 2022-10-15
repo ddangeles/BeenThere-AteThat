@@ -1,7 +1,29 @@
-* {
-    font-family: 'Trebuchet MS', sans-serif;
+:root {
+    --primary-color: #A3E2D6;
+    --secondary-color: #3C4442;
+    --highlight-color: #87367B;
+    --background-color: white;
+    --theme-font: ‘Gill Sans’, ‘Gill Sans MT’, Calibri, ‘Trebuchet MS’, sans-serif;
 }
 
-.image-uploader-hide {
-    display: none;
+.custom-nav, .custom-card {
+    background-color: var(--primary-color);
+}
+
+.custom-text {
+    color: var(--secondary-color);
+}
+
+.custom-card a:active, .custom-card a:visited, .custom-card a:link {
+    color: white;
+    text-decoration: none;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
 }

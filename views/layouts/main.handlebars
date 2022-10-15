@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Been There, Ate That</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css"/>
 
 </head>
 <body>
     <nav>
-    <div class="nav-wrapper light-blue accent 2">
-      <a href="#" class="brand-logo">Been There Ate That</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <div class="nav-wrapper custom-nav row">
+      <a href="#" class="brand-logo col s3">Been There Ate That</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down col s9">
         <li><a href="/">Home</a></li>
         <li><a href="/my-restaurants">My Restaurants</a></li>
         {{#unless loggedIn}}
