@@ -1,13 +1,10 @@
 const { BeenThere } = require("../../models/");
 const router = require('express').Router();
-const withAuth = require('../../utils/withAuth')
 
-
-router.post("/", withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
     try {
       const newBeenThere = await BeenThere.create({
         ...req.body,
-        userId: req.session.userId
       });
       res.json(newBeenThere);
     } catch (err) {
@@ -15,5 +12,5 @@ router.post("/", withAuth, async (req, res) => {
     }
   });
 
+  module.exports = router;
 
-module.exports = router;

@@ -1,24 +1,27 @@
-const newFormHandler = async function (event) {
-    event.preventDefault();
-  
-  
-    const restaurantId = document.getElementById('restaurantId').value;
-    //const location = document.getElementById('restaurant-location').value;
-  
-  
-    await fetch(`/api/beenthere`, {
-      method: 'POST',
-      body: JSON.stringify({
-        restaurantId,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-  
-    
-  };
-   console.log(err);
+async function visitedFormHandler(event) {
+  event.preventDefault();
+  console.log('s');
 
-  
-  document.getElementById('visitedBtn').onclick = function(){
-    location.reload('/my-restaurants')
-  }  
+  const restaurantId = document.getElementById('restaurant-id').value
+  console.log(restaurantId);
+  const userId = document.getElementById('user-id').value
+
+ 
+      const response = await fetch('/api/beenthere', {
+        method: 'POST',
+        body: JSON.stringify({
+          userId,
+          restaurantId,
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        document.location.reload();
+      } else {
+        alert(response.statusText);
+      }
+}
+
+document.getElementById('visited-beenthere').addEventListener('submit', visitedFormHandler);

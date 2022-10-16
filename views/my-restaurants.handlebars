@@ -27,7 +27,11 @@
             <i class="small material-icons">check_box</i>
           {{/if}}
           {{#unless restaurant.visited}}
-           <button id="visitedBtn"><a class="light-blue-text text-darken-4" href="#">Been There?</a> </button>
+          <form id="visited-beenthere">
+          <input type="hidden" name="restaurantId" id="restaurant-id" value="{{restaurant.id}}"/>
+          <input type="hidden" name="userId" id="user-id" value="{{restaurant.userId}}"/>
+           <button id="visitedBtn" type="submit"><a class="light-blue-text text-darken-4">Been There?</a> </button>
+           </form>
            {{/unless}}
           <a class="light-blue-text text-darken-4" href="/restaurant/{{id}}">Comment</a>
         </div>
