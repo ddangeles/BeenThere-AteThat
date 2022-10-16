@@ -1,42 +1,42 @@
 <h3 class="valign center custom-text nav-font">Welcome!</h2>
 
-{{#if loggedIn}}
-<!-- Render user-specific data with Handlebars.js expressions -->
+  {{#if loggedIn}}
+  <!-- Render user-specific data with Handlebars.js expressions -->
 
-<div class="row">
-  {{#each restaurantData as |restaurant| }}
-  <div class="col s12 m4">
-    <div class="new-card valign center custom-card">
+  <div class="row">
+    {{#each restaurantData as |restaurant| }}
+    <div class="col s12 m4 restaurant-card">
+      <div class="new-card valign center custom-card">
 
-      <a href="/restaurant/{{id}}">
-        <div class="new-card-image">
-          <!--We can replace the image link with the uploaded images once models and routes are updated-->
-          {{#if restaurant.image}}
-          <img src="/image/{{restaurant.image}}" />
+        <a href="/restaurant/{{id}}">
+          <div class="new-card-image">
+            <!--We can replace the image link with the uploaded images once models and routes are updated-->
+            {{#if restaurant.image}}
+            <img class="materialboxed col m12 custom-image" src="/image/{{restaurant.image}}" />
+            {{/if}}
+          </div>
+
+          <div class="new-card-content">
+            <span class="new-card-title">{{restaurant.name}}</span>
+            <p class="">Location: {{restaurant.location}}</p>
+
+
+          </div>
+        </a>
+
+        <div class="new-card-action">
+          <!--REDIRECT USER TO HOME PAGE LATER-->
+          {{#if restaurant.visited}}
+          <i class="small material-icons been-there-text">check_box</i>
           {{/if}}
+          {{#unless restaurant.visited}}
+          <a class="custom-text" href="#"><i class="small material-icons custom-text">add_location</i></a>
+          {{/unless}}
+          <a class="link-color" href="/restaurant/{{id}}"><i class="small material-icons custom-text">comment</i></a>
         </div>
-
-        <div class="new-card-content">
-          <span class="new-card-title">{{restaurant.name}}</span>
-          <p class="">Location: {{restaurant.location}}</p>
-
-
-        </div>
-      </a>
-
-      <div class="new-card-action">
-        <!--REDIRECT USER TO HOME PAGE LATER-->
-        {{#if restaurant.visited}}
-        <i class="small material-icons been-there-text">check_box</i>
-        {{/if}}
-        {{#unless restaurant.visited}}
-        <a class="custom-text" href="#"><i class="small material-icons custom-text">add_location</i></a>
-        {{/unless}}
-        <a class="link-color" href="/restaurant/{{id}}"><i class="small material-icons custom-text">comment</i></a>
       </div>
     </div>
-  </div>
-  {{/each}}
+    {{/each}}
 
-</div>
-{{/if}}
+  </div>
+  {{/if}}

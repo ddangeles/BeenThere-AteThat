@@ -1,50 +1,58 @@
 [
     {
-        "id": 1,
         "name": "June et Jolie",
         "location": "North County",
-        "userId": 1
+        "userId": 1,
+        "image": "june-et-julie.jpeg"
 
     },
     {
         "name": "Bang Bang",
         "location": "Downtown",
-        "userId": 2
+        "userId": 2,
+        "image": "bang-bang.jpeg"
     },
     {
         "name": "You & Yours Distillery",
         "location": "Downtown",
-        "userId": 1
+        "userId": 1,
+        "image": "you-yours.jpeg"
     },
     {
         "name": "The Waverly",
         "location": "North County",
-        "userId": 1
+        "userId": 1,
+        "image": "the-waverly.jpg"
     },
     {
         "name": "Firenze Trattoria",
         "location": "North County",
-        "userId": 1
+        "userId": 1,
+        "image": "firenze-main-dining-room.jpeg"
     },
     {
         "name": "Almalfi Cucina Italiana",
         "location": "North County",
-        "userId": 1
+        "userId": 1,
+        "image": "almafi.webp"
     },
     {
         "name": "Valentina",
         "location": "North County",
-        "userId": 2
+        "userId": 2,
+        "image": "valentina.jpeg"
     },
     {
         "name": "Din Tai Fung",
         "location": "La Jolla",
-        "userId": 2
+        "userId": 2,
+        "image": "din-tai-fung.jpeg"
     },
     {
         "name": "Animae",
         "location": "Downtown",
-        "userId": 1
+        "userId": 1,
+        "image": "animae.jpeg"
     }
 
 ]
