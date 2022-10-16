@@ -7,7 +7,8 @@ router.get('/', withAuth, async (req, res) => {
   try {
     let restaurantData = await Restaurant.findAll({
       where: { "userId": req.session.userId },
-      include: [User]
+      include: [User],
+      order:[['name', 'ASC']]
     });
 
     restaurantData = restaurantData.map((project) => project.get({ plain: true }));
