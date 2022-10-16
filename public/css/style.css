@@ -79,3 +79,16 @@
     font-weight: 500;
     color: var(--secondary-color);
 }
+
+.custom-image{
+    height: 200px;
+    margin: 20px;
+}
+
+.restaurant-card {
+    height: 500px
+}
+
+.restaurant-button{
+    margin: 2%
+}
