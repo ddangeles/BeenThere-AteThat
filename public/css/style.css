@@ -92,3 +92,18 @@
 .restaurant-button{
     margin: 2%
 }
+
+.new-btn, .new-btn:hover, .new-btn:active {
+    border:0px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
+
+
+
