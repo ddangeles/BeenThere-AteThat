@@ -2,14 +2,14 @@
 <!-- Render user-specific data with Handlebars.js expressions -->
 
 <div class="restaurant-button">
-  <button class="new-btn btn-primary m4"><a class="custom-text" href="/my-restaurants/new"> Add New Restaurant</a></button>
+  <button class="new-btn btn-primary m4"><a class="custom-text" href="/my-restaurants/new"> Add New
+      Restaurant</a></button>
 </div>
 {{#if restaurantData.length}}
 <div class="row">
   {{#each restaurantData as |restaurant| }}
   <div class="col s12 m4 restaurant-card">
     <div class="new-card valign center custom-card">
-      <a href="/my-restaurants/edit/{{id}}"></a>
       <div class="new-card-image">
         <!--We can replace the image link with the uploaded images once models and routes are updated-->
         {{#if restaurant.image}}
@@ -17,31 +17,33 @@
         {{/if}}
       </div>
 
-
-      <div class="new-card-content">
-        <span class="new-card-title">{{restaurant.name}}</span>
-        <p class="white-text">Location: {{restaurant.location}}</p>
-      </div>
+      <a href="/my-restaurants/edit/{{id}}">
+        <div class="new-card-content">
+          <span class="new-card-title">{{restaurant.name}}</span>
+          <p class="white-text">Location: {{restaurant.location}}</p>
+        </div>
       </a>
       <div class="new-card-action">
         {{#if restaurant.visited}}
         <i class="small material-icons been-there-text">check_box</i>
         {{/if}}
         {{#unless restaurant.visited}}
-        <form id="visited-beenthere">
+        <form class="visited-form" id="visited-beenthere">
           <input type="hidden" name="restaurantId" id="restaurant-id" value="{{restaurant.id}}" />
           <input type="hidden" name="userId" id="user-id" value="{{restaurant.userId}}" />
-          <button id="visitedBtn" type="submit"><a class="custom-text"><i class="small material-icons custom-text">add_location</i></a></button>
-          </form>
-          {{/unless}}
-          <a class="light-blue-text text-darken-4" href="/restaurant/{{id}}"><i class="small material-icons custom-text">comment</i></a>
+          <button class="new-btn" id="visitedBtn" type="submit"><a class="custom-text"><i
+                class="small material-icons custom-text">add_location</i></a></button>
+        </form>
+        {{/unless}}
+        <a class="light-blue-text text-darken-4" href="/restaurant/{{id}}"><i
+            class="small material-icons custom-text">comment</i></a>
       </div>
     </div>
-    </div>
-    {{/each}}
   </div>
-  {{/if}}
+  {{/each}}
+</div>
+{{/if}}
 
-  <footer class="footer text-center">
-    <script src="/js/beenThere.js"></script>
-  </footer>
+<footer class="footer text-center">
+  <script src="/js/beenThere.js"></script>
+</footer>
