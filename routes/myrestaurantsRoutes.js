@@ -45,7 +45,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/new', withAuth, (req, res) => {
   res.render('new-restaurant', {
-    layout: 'myRestaurant',
+    layout: 'myRestaurant', loggedIn: req.session.loggedIn
   });
 });
 

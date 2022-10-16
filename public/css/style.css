@@ -103,7 +103,16 @@
     margin-top: 5px;
 }
 
+.visited-form{
+    display: inline-block
+}
 
+.comma-font {
+    font-size: 20px
+}
 
+.welcome-image {
+    height: 600px;
+}
 
 

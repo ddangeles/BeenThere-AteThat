@@ -8,15 +8,15 @@
     
     <div>
       <label class="form-label">Location:</label>
-      <input class="form-input" name="restaurant-location" id="restaurant-location">{{restaurant.location}}</input>
+      <input class="form-input" name="restaurant-location" id="restaurant-location" value="{{restaurant.location}}">
     </div>
  
-    <button class="btn btn-primary" type="submit">EDIT</button>
+    <button class="new-btn" type="submit">EDIT</button>
     <input type="hidden" name="restaurant-id" id="restaurant-id" value="{{restaurant.id}}"/>
   </form>
   <br>
   <div class="card-body">
-   <button class="btn btn-primary" type="click" id="delete-btn">DELETE</button>
+   <button class="new-btn" type="click" id="delete-btn">DELETE</button>
   </div> 
 </div>
 <script src="/js/edit.js"></script>
