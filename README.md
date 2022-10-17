@@ -51,7 +51,7 @@ If you have questions regarding this project, you can anyone on the team at:
     * Email: <a href="mailto:mlcundayag@gmail.com">mlcundayag@gmail.com</a>
 * Vincent Fernandez
     * Github: <a href="https://github.com/fernandez97vincent">fernandez97vincent</a>
-    * Email: <a href="mailto:courtneycaputo@gmail.com">courtneycaputo@gmail.com</a>
+    * Email: <a href="mailto:fernandez97vincent@gmail.com">fernandez97vincent@gmail.com</a>
 * Will Wright
     * Github: <a href="https://github.com/wrightw404">wrightw404</a>
     * Email: <a href="mailto:Wrightw404@gmail.com">Wrightw404@gmail.com</a>
