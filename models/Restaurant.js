@@ -22,14 +22,6 @@ Restaurant.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        favorite: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true
-        },
-        beenThere: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true
-        },
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false,
